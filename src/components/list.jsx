@@ -36,6 +36,7 @@ class TracksList extends Component {
 
     deleteTrackHandler = (tracksIndex) => {
         const tracks = [...this.state.tracks]
+        console.log('index:', tracksIndex);
         tracks.splice(tracksIndex, 1)
         this.setState({ tracks: tracks })
     }
@@ -81,7 +82,7 @@ class TracksList extends Component {
                                             length={track.length}
                                             artist={track.artist}
                                             url={track.url}
-                                            deleteTrackHandler={this.deleteTrackHandler}
+                                            deleteTrackHandler={tracks=>this.deleteTrackHandler(this.state.tracks.indexOf(track))}
                                             currentSongIndex={this.state.currentSongIndex}
                                         />
                                     )
